@@ -23,7 +23,7 @@ let notes = [
     important: true,
   },
 ]
-
+app.use(express.static('build'))
 app.use(cors())
 app.use(express.json())
 
