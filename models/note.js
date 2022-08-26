@@ -1,14 +1,5 @@
 const mongoose = require('mongoose')
 
-const url = process.env.MONGO_URI
-
-mongoose
-  .connect(url)
-  .then(result => {
-    console.log('connected to mongoDB')
-  })
-  .catch(error => console.log('error connecting to mongoDB:', error.message))
-
 const noteSchema = mongoose.Schema({
   content: {
     type: String,
@@ -30,6 +21,4 @@ noteSchema.set('toJSON', {
   },
 })
 
-const Note = mongoose.model('Note', noteSchema)
-
-module.exports = Note
+module.exports = mongoose.model('Note', noteSchema)
